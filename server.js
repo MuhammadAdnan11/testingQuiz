@@ -9,11 +9,32 @@ const User = require('./models/User');
 const app = express();
 const PORT = 5000;
 
-mongoose.connect('mongodb://localhost:27017/auth_demo', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then(() => console.log('MongoDB connected'))
-  .catch((err) => console.error(err));
+// mongoose.connect('mongodb+srv://adnan191022:Adnan7527@quizapp.2jcuizt.mongodb.net/', {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+// }).then(() => console.log('MongoDB connected'))
+//   .catch((err) => console.error(err));
+
+// mongoose.connect('mongodb+srv://adnan191022:TestUser123!@quizapp.2jcuizt.mongodb.net/quizapp?retryWrites=true&w=majority')
+//   .then(() => console.log('MongoDB connected'))
+//   .catch((err) => console.error('MongoDB error:', err));
+
+// testConnection.js
+
+
+
+
+
+
+// mongoose.connect('mongodb+srv://Adnan7527:Adnan191022@quizapp.2jcuizt.mongodb.net/quizapp?retryWrites=true&w=majority')
+//   .then(() => console.log('✅ MongoDB connected'))
+//   .catch((err) => console.error('❌ MongoDB connection error:', err));
+
+mongoose.connect('mongodb+srv://Adnan7527:Adnan191022@quizapp.2jcuizt.mongodb.net/quizapp?retryWrites=true&w=majority')
+  .then(() => console.log('✅ MongoDB connected'))
+  .catch((err) => console.error('❌ MongoDB connection error:', err));
+
+
 
 app.use(cors());
 app.use(bodyParser.json());
