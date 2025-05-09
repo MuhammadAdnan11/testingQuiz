@@ -12,7 +12,7 @@ body{
     overflow: hidden;
 }
 
-.header{
+/* .header{
     position: fixed;
     top: 0;
     left: 0;
@@ -23,29 +23,125 @@ body{
     justify-content: space-between;
     align-items: center;
     z-index: 100;
+} */
+
+/* ✅ Navbar styles */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #c40094;
+  color: white;
+  position: relative;
 }
 .container{
     display: flex;
     height: 100vh;
     width: 200%;
 }
-.logo{
-    font-size: 32px;
-    color: white;
-    text-decoration: none;
-    font-weight: 700;
-    filter: drop-shadow(0 0 5px #09001d);
-}
-.navbar a{
+
+/* .navbar a{
     font-size: 18px;
     color: white;
     text-decoration: none;
     font-weight: 500;
     margin-left: 35px;
+} */
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  color: white;
 }
-.navbar a:hover, .navbar a.active {
+
+.navbar {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* .navbar a:hover, .navbar a.active {
     color: #c40094;
+} */
+.navbar a:hover,
+.navbar a.active {
+  color: #ffddf4;
 }
+/* Hamburger button (hidden by default) */
+/* .menu-toggle {
+  display: none;
+  font-size: 26px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+} */
+/* ✅ Hamburger icon */
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* ✅ Mobile view */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 100%;
+    background-color: #c40094;
+    display: none;
+    padding: 20px;
+    z-index: 999;
+  }
+
+  .navbar.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+/* Responsive behavior */
+/* @media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 65px;
+    right: 0;
+    background-color: #c40094;
+    width: 100%;
+    display: none;
+    padding: 15px 0;
+  }
+
+  .navbar.active {
+    display: flex;
+  }
+
+  .navbar a {
+    padding: 10px 20px;
+    width: 100%;
+  }
+} */
+
 .main{
     min-height: 100vh;
     background:url(Background-Image/background.jpg) no-repeat;
@@ -422,18 +518,7 @@ body{
 
 /* For tablets and larger phones */
 @media (max-width: 768px) {
-    .header {
-        padding: 20px 5%;
-    }
-
-    .logo {
-        font-size: 24px;
-    }
-
-    .navbar a {
-        font-size: 16px;
-        margin-left: 20px;
-    }
+   
 
     .home-content h1 {
         font-size: 60px;
