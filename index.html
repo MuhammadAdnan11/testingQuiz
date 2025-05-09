@@ -1,39 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <title>Login</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Website</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script>
+  // Redirect to login if not logged in
+  if (localStorage.getItem('isLoggedIn') !== 'true') {
+    window.location.href = 'login.html';
+  }
+</script>
+
+
 </head>
+
 <body>
-  <div class="form-container">
-    <form id="login-form">
-      <h2>Login</h2>
-      <input type="email" placeholder="Email" required />
-      <input type="password" placeholder="Password" required />
-      <button type="submit">Login</button>
-      <p>Don't have an account? <a href="./registration.html">Register here</a></p>
-    </form>
-  </div>
+    <main class="main">
+        <header class="header">
+            <a href="#" class="logo">Quiz.</a>
+           
+            <nav class="navbar">
+                <!-- <a href="http://" class="active">Home</a>
+                <a href="https://github.com/MuhammadAdnan11">About</a>
+                <a href="https://github.com/MuhammadAdnan11">Services</a>
+                <a href="https://github.com/MuhammadAdnan11">Contact</a> -->
+mkdir login-registration-app
+                <a href="/" class="active">Home</a>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Contact</a>
+                <a href="./login.html">Login</a>
+                <a href="./registration.html">Reg</a>
+            </nav>
+        </header>
 
-  <!-- <script>
-    document.getElementById('login-form').addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const email = e.target[0].value;
-      const password = e.target[1].value;
+        <div class="container">
+            <section class="quiz-section "> 
+                <div class="quiz-box">
+                    <h1>Computer Skills </h1>
+                    <div class="quiz-header">
+                        <span>Test Your ICT knowledge</span>
+                        <span class="header-score">Score: 0 / 5</span>
+                    </div>
 
-      const res = await fetch('http://localhost:5000/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
-      });
+                    <h2 class="question-text">What does html stands for??</h2>
+                    
+                    <div class="option-list">
+                        <!-- <div class="option">
+                            <span>A. Hyper type Multi Language</span>
+                        </div>
+                        <div class="option">
+                            <span>B. Hyper Text Multiple Language</span>
+                        </div>
+                        <div class="option">
+                            <span>C. Hyper Text Markup Language</span>
+                        </div>
+                        <div class="option">
+                            <span>D. Home Text Multi Language</span>
+                        </div> -->
+                    </div>
 
-      const data = await res.json();
-      alert(data.message || data.error);
-    });
-  </script> -->
+                    <div class="quiz-footer">
+                        <span class="question-total">1 of 5 Questions</span>
+                        <button class="next-btn">Next</button>
+                    </div>
+                </div>
 
-<script>
+                <div class="result-box">
+                    <h2>Quiz Result!</h2>
+                    <div class="percentage-container">
+                        <div class="circular-progress">
+                            <span class="progress-value">0%</span>
+                        </div>
+
+                        <span class="score-text">Your Score 0 out of 5</span>
+                    </div>
+
+                    <div class="buttons">
+                        <button class="tryAgain-btn">Try Again</button>
+                        <button class="goHome-btn">Go To Home</button>
+                    </div>
+
+                </div>
+
+            </section>
+            <section class="home">
+                <div class="home-content">
+                    <h1>Quiz Portal </h1>
+                    <p>
+                        Ready to put your computer knowledge to the test?
+                        This quiz will challenge everything you’ve learned about basic computer skills—from hardware to software, shortcuts to storage.
+                        Sharpen your mind, think fast, and show us what you’ve got.
+                        It’s time to prove you're not just good with tech — you’re great at it!
+                        Let the challenge begin! 💻⚡      
+                                </p>
+                    <button class="start-btn">Start Quiz</button><br/>
+                    <p style="color:white">Prepared By: <b>"Engr M.Adnan"</b> for GIMS Students Practice</p>
+                </div> 
+            </section>
+        </div>
+
+       
+    </main>
+
+    <div class="popup-info"> 
+        <h2>Quiz Guide</h2>
+        <span class="info"> 1.  Click "Continue " to begin the quiz.</span>
+        <span class="info"> 2.  Read each question carefully and choose the correct answer from the options. </span>
+        <span class="info"> 3.  Use the "Next" button to proceed to the next question after selecting your answer.</span>
+        <span class="info"> 4.  After completing the quiz, view your score to see how many questions you answered correctly.</span>
+        <span class="info"> 5.  Click "Try Again" to retake the quiz or "Go To Home" to return to the homepage.</span>
+ 
+        <div class="btn-group">
+            <button class="info-btn exit-btn">Exit Quiz</button>
+            <a href="#" class="info-btn continue-btn">Continue</a>
+        </div>
+    </div>
+
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+  // Login Form Submission
   document.getElementById('login-form').addEventListener('submit', async (e) => {
     e.preventDefault();
     const email = e.target[0].value;
@@ -46,20 +139,30 @@
     });
 
     const data = await res.json();
+    alert(data.message || data.error);
+  });
 
-    if (res.ok) {
-      // Store user info in localStorage
-      localStorage.setItem('isLoggedIn', 'true');
-      localStorage.setItem('userEmail', email);
+  // Registration Form Submission
+  document.getElementById('register-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const fullName = e.target[0].value;
+    const email = e.target[1].value;
+    const password = e.target[2].value;
+    const confirmPassword = e.target[3].value;
 
-      // Redirect to main page
-      window.location.href = 'index.html';
-    } else {
-      alert(data.error || 'Login failed');
-    }
+    if (password !== confirmPassword) return alert("Passwords don't match");
+
+    const res = await fetch('http://localhost:5000/register', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ fullName, email, password }),
+    });
+
+    const data = await res.json();
+    alert(data.message || data.error);
   });
 </script>
 
-
 </body>
+
 </html>

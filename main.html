@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Main Page</title>
+</head>
+<body>
+  <h1>Welcome to the Main Page</h1>
+  <p id="user-info"></p>
+  <button onclick="logout()">Logout</button>
+
+  <script>
+    if (localStorage.getItem('isLoggedIn') !== 'true') {
+      alert('Access denied. Please log in.');
+      window.location.href = 'login.html';
+    } else {
+      // Show user email
+      document.getElementById('user-info').innerText =
+        'Logged in as: ' + localStorage.getItem('userEmail');
+    }
+
+    function logout() {
+      localStorage.clear();
+      window.location.href = 'login.html';
+    }
+  </script>
+</body>
+</html>
